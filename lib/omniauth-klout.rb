@@ -1,7 +1,2 @@
 require "omniauth-klout/version"
-
-module Omniauth
-  module Klout
-    # Your code goes here...
-  end
-end
+require "omniauth/strategies/klout"
