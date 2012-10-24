@@ -2,6 +2,11 @@
 
 An OmniAuth strategy for Klout
 
+## Warning
+
+While this works, this is brand new and relatively untested in the real world.
+Klout's 'OAuth2' API doesn't actually follow the spec, which makes things a bit more fun :)
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -23,6 +28,8 @@ Or install it yourself as:
   end
 
 ## License
+
+(c) Alex Heeton & Enthuse.me
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
