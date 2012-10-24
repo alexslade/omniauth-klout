@@ -11,7 +11,7 @@ describe OmniAuth::Strategies::Klout do
     end
 
     it 'should have correct authorize url' do
-      subject.options.client_options.authorize_url.should eq('https://api.klout.com/v2/oauth')
+      subject.options.client_options.authorize_url.should eq('https://api.klout.com/v2/oauth/')
     end
 
     it 'should have correct token url' do
