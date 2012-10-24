@@ -2,31 +2,31 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class Klout < OmniAuth::Strategies::OAuth2
-      option :client_options, {
-        :site => 'https://api.klout.com',
-        :authorize_url => 'https://api.klout.com/v2/oauth/',
-        :token_url => 'https://api.klout.com/v2/oauth/token'
-      }
+    class Klout
+      include  OmniAuth::Strategy
+      SITE = 'https://api.klout.com'
+      AUTHORIZE_URL = 'https://api.klout.com/v2/oauth/'
 
-      def request_phase
-        redirect client.auth_code.authorize_url({apiKey: client.id, redirect: callback_url}.merge(authorize_params))
+      def initialize(app, api_key, api_secret)
+        @api_key = api_key
+        @api_secret = api_secret
+        super(app)
       end
 
-      def callback_phase # override the OAuth2 callback
-        self.env['omniauth.auth'] = auth_hash
-        call_app!
+      def request_phase
+        redirect request_url
       end
 
       uid { request.params['user'] }
       info do
         {
-          'authCode' => request.params['authCode'],
+          authCode: request.params['authCode'],
         }
       end
 
-      def credentials
-        {} # return nothing, klout doesn't give us anything
+      private
+      def request_url
+        "#{AUTHORIZE_URL}?apiKey=#{@api_key}&redirect=#{callback_url}"
       end
 
     end
