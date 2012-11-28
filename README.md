@@ -2,10 +2,11 @@
 
 An OmniAuth strategy for Klout
 
-## Warning - Noob alert
+## Warning - Alpha software
 
-While this works, this is brand new and relatively untested in the real world. (Also my first omniauth strategy)
+While this works for me, this is brand new and relatively untested in the real world.
 Klout's 'OAuth2' API doesn't actually follow the spec, which makes things a bit more fun!
+Please report any problems & patches.
 
 ## Installation
 
